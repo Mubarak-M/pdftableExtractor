@@ -40,8 +40,8 @@ single column pdf documents using `extractor_tables` function:
 
 ``` r
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-table <- extractor_tables(file, path = TRUE)
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+table1 <- extractor_tables(file, path = TRUE)
 ```
 
 ### `pages_tables`
@@ -52,8 +52,8 @@ function:
 
 ``` r
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables(file, path = TRUE)
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+table2 <- pages_tables(file,pages = 18, path = TRUE)
 ```
 
 #### Rectangular data
@@ -67,7 +67,7 @@ rows and all columns are of equal length.
 ``` r
 library(pdftableExtractor)
 file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables(file, path = TRUE, rec = TRUE)
+table3 <- pages_tables(file, pages = 18, path = TRUE, rec = TRUE)
 ```
 
 ## Usage guide for double column document
@@ -79,8 +79,8 @@ double column pdf documents using `extractor_tables2` function:
 
 ``` r
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- extractor_tables2(file, path = TRUE)
+file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+table4 <- extractor_tables2(file, path = TRUE)
 ```
 
 ### `pages_tables2`
@@ -91,22 +91,8 @@ function:
 
 ``` r
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables2(file, path = TRUE)
-```
-
-#### Rectangular data
-
-Extracting a rectangular data that is ready for analysis in R can reduce
-data processing time. The `rec` argument is capable of extracting clean
-data.frame from pdf files. For this argument to work, users must be sure
-that the table meets the requirement of a rectangular data. That is, all
-rows and all columns are of equal length.
-
-``` r
-library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables2(file, path = TRUE, rec = TRUE)
+file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+table5 <- pages_tables2(file,pages = 3, path = TRUE)
 ```
 
 #> You’ll still need to render `README.Rmd` regularly, to keep

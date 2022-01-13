@@ -45,8 +45,8 @@ column pdf documents using `extractor_tables` function:
 
 ```{r extractor_tables, eval=FALSE}
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-table <- extractor_tables(file, path = TRUE)
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+table1 <- extractor_tables(file, path = TRUE)
 ```
 
 
@@ -56,8 +56,8 @@ page(s) of a single column pdf documents using `pages_tables` function:
 
 ```{r pages_tables, eval=FALSE}
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables(file, path = TRUE)
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+table2 <- pages_tables(file,pages = 18, path = TRUE)
 ```
 
 #### Rectangular data
@@ -70,7 +70,7 @@ and all columns are of equal length.
 ```{r singlecol, eval=FALSE}
 library(pdftableExtractor)
 file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables(file, path = TRUE, rec = TRUE)
+table3 <- pages_tables(file, pages = 18, path = TRUE, rec = TRUE)
 ```
 
 ## Usage guide for double column document
@@ -80,8 +80,8 @@ pdf documents using `extractor_tables2` function:
 
 ```{r extractor_tables2, eval=FALSE}
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- extractor_tables2(file, path = TRUE)
+file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+table4 <- extractor_tables2(file, path = TRUE)
 ```
 
 
@@ -91,23 +91,9 @@ page(s) of a double column pdf documents using `pages_tables2` function:
 
 ```{r pages_tables2, eval=FALSE}
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables2(file, path = TRUE)
+file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+table5 <- pages_tables2(file,pages = 3, path = TRUE)
 ```
-
-#### Rectangular data
-Extracting a rectangular data that is ready for analysis in R can 
-reduce data processing time. The `rec` argument is capable of extracting clean
-data.frame from pdf files. For this argument to work, users must be sure that the
-table meets the requirement of a rectangular data. That is, all rows 
-and all columns are of equal length.
-
-```{r doublecol, eval=FALSE}
-library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
-tab <- pages_tables2(file, path = TRUE, rec = TRUE)
-```
-
 
 #> You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. #>`devtools::build_readme()` is handy for this. You could also use GitHub Actions to 
 #> re-render `README.Rmd` every time you push. An example workflow can be found here: 
