@@ -32,13 +32,13 @@ pages_tables2 <- function(x,pages, path = FALSE,
 
   }
   x <- x[pages]
-  tables <- lapply(seq_along(x), function(xx)
-    extractor_tables(x[[xx]], path = FALSE,
+  tabless <- lapply(seq_along(x), function(xx)
+    extractor_tables2(x[[xx]], path = FALSE,
                    rec = rec,
                    delimiter = "\\s{2,}",
                    delimiter_table = "\\s{2,}",
                    replacement = "|"))
-  tables
+  tabless
 }
 
 
