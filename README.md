@@ -47,7 +47,7 @@ table1 <- extractor_tables(file, path = TRUE)
 All tables in `onecoldata.pdf` are stored as a list containing 11 data
 frames in table1. Example of one of the data frames is presented below:
 
-<img src="inst/extdata/output1.png" width="50%" style="display: block; margin: auto;" />
+<img src="inst/extdata/output1.png" width="70%" style="display: block; margin: auto;" />
 
 ### `pages_tables`
 
@@ -154,7 +154,7 @@ frames in table4.
 
 Example of one of the data frames is presented below:
 
-<img src="inst/extdata/output2.png" width="50%" style="display: block; margin: auto;" />
+<img src="inst/extdata/output2.png" width="80%" style="display: block; margin: auto;" />
 
 ### `pages_tables2`
 
@@ -203,7 +203,7 @@ file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
 table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
 ```
 
-<img src="inst/extdata/output3.png" width="50%" style="display: block; margin: auto;" />
+<img src="inst/extdata/output3.png" width="70%" style="display: block; margin: auto;" />
 
 ## Limitations
 

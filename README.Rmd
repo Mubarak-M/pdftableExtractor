@@ -54,7 +54,7 @@ in table1.
 Example of one of the data frames is presented below:
 
 
-```{r, out.width = "50%", fig.align = "center", echo = FALSE}
+```{r, out.width = "70%", fig.align = "center", echo = FALSE}
 knitr::include_graphics("inst/extdata/output1.png")
 ```
 
@@ -100,7 +100,7 @@ in table4.
 Example of one of the data frames is presented below:
 
 
-```{r, out.width = "50%", fig.align = "center", echo = FALSE}
+```{r, out.width = "80%", fig.align = "center", echo = FALSE}
 knitr::include_graphics("inst/extdata/output2.png")
 ```
 
@@ -125,7 +125,7 @@ file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
 table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
 ```
 
-```{r, out.width = "50%", fig.align = "center", echo = FALSE}
+```{r, out.width = "70%", fig.align = "center", echo = FALSE}
 knitr::include_graphics("inst/extdata/output3.png")
 ```
 
