@@ -39,54 +39,54 @@ extractor_tables2 <- function(x, path = FALSE, rec = FALSE,
                            line_num = NULL,
                            line_text = NULL)
   } else {
-      x_lines <- unlist(stringi::stri_split_lines(x))
-      x_lines <- gsub("^\\s+|\\s+$", '', x_lines)
-      x_lines <- gsub("\002", '-', x_lines)## correctly represent minus sign
+      x_liness <- unlist(stringi::stri_split_lines(x))
+      x_liness <- gsub("^\\s+|\\s+$", '', x_liness)
+      x_liness <- gsub("\002", '-', x_liness)## correctly represent minus sign
     }
 
-    possible_table_locations <- grep("\\s{2,}|\\s{2,}$", x_lines)##recent
+    possible_table_locationsss <- grep("\\s{2,}|\\s{2,}$", x_liness)##recent
     ##posibble location of the find table location function
 
-    table_locations <- find_table_locations(possible_table_locations, x_lines)
+    table_locationss <- find_table_locationss(possible_table_locationsss, x_liness)
 
-    table_locations <- lapply(table_locations, table_location_sequence)
+    table_locationss <- lapply(table_locationss, table_location_sequences)
     #full table locations without omited lines, if any exist previously
 
-    table_text_space <- lapply(seq_along(table_locations), function(xx)
-      x_lines[table_locations[[xx]]]) #extract the lines from the original x_lines using the known table locations
+    table_text_spaces <- lapply(seq_along(table_locationss), function(xx)
+      x_liness[table_locationss[[xx]]]) #extract the lines from the original x_liness using the known table locations
     #add delimiter function should be here
 
-    table_text_delim <- lapply(table_text_space, add_delimiter,
+    table_text_delims <- lapply(table_text_spaces, add_delimiter,
                                delimiter = delimiter_table,
                                replacement = replacement)
     #replace white spaces between table text with /
 
     if(rec){
-      tables <- lapply(table_text_delim, rec_table)
+      tabless <- lapply(table_text_delims, rec_tables)
 
-      #tables <- lapply(seq_along(table_text_delim), function(xx)
-         #rec_table(table_text_delim[[xx]])
+      #tables <- lapply(seq_along(table_text_delims), function(xx)
+         #rec_tables(table_text_delims[[xx]])
         #)
 
-      #tables <- lapply(seq_along(table_text_delim), function(xx){
-      # output_con <- textConnection(table_text_delim[[xx]])
+      #tables <- lapply(seq_along(table_text_delims), function(xx){
+      # output_con <- textConnection(table_text_delims[[xx]])
       #data_table <- read.csv(output_con, sep = "/")
       #data_table
       #})
-      tables
+      tabless
     }else{
-      tables <- lapply(table_text_space, as.data.frame, use.names=TRUE)
+      tabless <- lapply(table_text_spaces, as.data.frame, use.names=TRUE)
       #tables <- lapply(seq_along(tables), function(xx)
       #tables[[xx]][-1,])
-      tables
+      tabless
   }
 }
 
 
-find_table_locations <- function(possible_table_locations, x_lines) {
+find_table_locationss <- function(possible_table_locationsss, x_liness) {
 
-  characters_line_split <-unlist(lapply(seq_len(length(possible_table_locations)), function(xx)
-    length(strsplit(x_lines[possible_table_locations[[xx]]], "\\s{2,}")[[1]])))
+  characters_line_split <-unlist(lapply(seq_len(length(possible_table_locationsss)), function(xx)
+    length(strsplit(x_liness[possible_table_locationsss[[xx]]], "\\s{2,}")[[1]])))
 
 
   characters_line_split_Adj <- characters_line_split>2
@@ -95,27 +95,27 @@ find_table_locations <- function(possible_table_locations, x_lines) {
 
   #characters_line_split_Adj <- rlee$lenghts>2
 
-  rle_df_character <- data.frame(
+  rle_df_characters <- data.frame(
     lengths = rle(characters_line_split_Adj)$lengths,
     values = rle(characters_line_split_Adj)$values)
 
-  rle_df_character$select <- ifelse(rle_df_character$lengths > 2 & rle_df_character$values, 1, 0)
+  rle_df_characters$select <- ifelse(rle_df_characters$lengths > 2 & rle_df_characters$values, 1, 0)
 
-  rle_df_character$start <- c(1, cumsum(rle_df_character$lengths[1:(nrow(rle_df_character)-1)]) + 1)
-  rle_df_character$end <- cumsum(rle_df_character$lengths)
-  rle_df_character$new_values <- ifelse(rle_df_character$select, TRUE, FALSE)
-  rle_df_true <- rle_df_character[rle_df_character$new_values == TRUE, ]
+  rle_df_characters$start <- c(1, cumsum(rle_df_characters$lengths[1:(nrow(rle_df_characters)-1)]) + 1)
+  rle_df_characters$end <- cumsum(rle_df_characters$lengths)
+  rle_df_characters$new_values <- ifelse(rle_df_characters$select, TRUE, FALSE)
+  rle_df_trues <- rle_df_characters[rle_df_characters$new_values == TRUE, ]
 
-  convert_to_true <- lapply(1:nrow(rle_df_true), function(xx)
-      rle_df_true[xx, 'start']:rle_df_true[xx, 'end']
+  convert_to_trues <- lapply(1:nrow(rle_df_trues), function(xx)
+      rle_df_trues[xx, 'start']:rle_df_trues[xx, 'end']
     )
 
-  row_numbers_return <- lapply(seq_along(convert_to_true), function(xx)
-      possible_table_locations[convert_to_true[[xx]]]
-      ## create the original indices of the true runs in the x_lines output
+  row_numbers_returns <- lapply(seq_along(convert_to_trues), function(xx)
+      possible_table_locationsss[convert_to_trues[[xx]]]
+      ## create the original indices of the true runs in the x_liness output
     )
 
-    row_numbers_return
+    row_numbers_returns
 
 }
 
@@ -126,13 +126,13 @@ add_delimiter <- function(table_lines, delimiter = "\\s{2,}",
 
 }
 
-table_location_sequence <- function(row_numbers_return){
-  loc_sequence <- min(row_numbers_return):max(row_numbers_return)
-  loc_sequence
+table_location_sequences <- function(row_numbers_returns){
+  loc_sequences <- min(row_numbers_returns):max(row_numbers_returns)
+  loc_sequences
 }
 
 ## function for clean rectangular table
-rec_table <- function(table_text){
+rec_tables <- function(table_text){
   output_con <- textConnection(table_text)
   data_table <- read.csv(output_con, sep = "|")
   data_table <- data.frame(data_table)
