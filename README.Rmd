@@ -49,15 +49,24 @@ file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
 table1 <- extractor_tables(file, path = TRUE)
 ```
 
+All tables in `onecoldata.pdf` are stored as a list containing 11 data frames 
+in table1.
+Example of one of the data frames is presented below:
+
+
+```{r, out.width = "50%", fig.align = "center", echo = FALSE}
+knitr::include_graphics("inst/extdata/output1.png")
+```
 
 ### `pages_tables`
 This is a basic example which shows you how to extract tables from a specific 
 page(s) of a single column pdf documents using `pages_tables` function:
 
-```{r pages_tables, eval=FALSE}
+```{r pages_tables}
 library(pdftableExtractor)
 file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
-table2 <- pages_tables(file,pages = 18, path = TRUE)
+table2 <- pages_tables(file,pages = 19, path = TRUE)
+table2
 ```
 
 #### Rectangular data
@@ -65,12 +74,13 @@ Extracting a rectangular data that is ready for analysis in R can
 reduce data processing time. The `rec` argument is capable of extracting clean
 data.frame from pdf files. For this argument to work, users must be sure that the
 table meets the requirement of a rectangular data. That is, all rows 
-and all columns are of equal length.
+and all columns must be of equal length.
 
-```{r singlecol, eval=FALSE}
+```{r singlecol}
 library(pdftableExtractor)
-file <- system.file("extdata", "1coldata.pdf", package = "pdftableExtractor")
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
 table3 <- pages_tables(file, pages = 18, path = TRUE, rec = TRUE)
+table3
 ```
 
 ## Usage guide for double column document
@@ -84,15 +94,25 @@ file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
 table4 <- extractor_tables2(file, path = TRUE)
 ```
 
+All tables in `twocoldata.pdf` are stored as a list containing 4 data frames 
+in table4.
+
+Example of one of the data frames is presented below:
+
+
+```{r, out.width = "50%", fig.align = "center", echo = FALSE}
+knitr::include_graphics("inst/extdata/output2.png")
+```
 
 ### `pages_tables2`
 This is a basic example which shows you how to extract tables from a specific 
 page(s) of a double column pdf documents using `pages_tables2` function:
 
-```{r pages_tables2, eval=FALSE}
+```{r pages_tables2}
 library(pdftableExtractor)
 file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
 table5 <- pages_tables2(file,pages = 3, path = TRUE)
+table5
 ```
 
 #> You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. #>`devtools::build_readme()` is handy for this. You could also use GitHub Actions to 
