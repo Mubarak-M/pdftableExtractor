@@ -1,0 +1,45 @@
+#' Extract tables from pdf documents
+#'
+#' Using the pdftools package, tables in the loaded pdf document are extracted
+#' as a dataframe and returned in a list..
+#'
+#' @param x Either the text of the pdf read in with the pdftools package or a
+#'    path for the location of the pdf file.
+#' @param pages numeric vector of pages from which table will be extracted.
+#'     it can be a single number or a vector of numbers.
+#' @param path An optional path designation for the location of the pdf to be
+#'    converted to text. The pdftools package is used for this conversion.
+#' @param rec TRUE/FALSE indicating whether the table in the pdf or the page has
+#'    a rectangular dimension.That is, all rows and all columns are of equal length
+#'    this is important because reading a table without proper dimension will
+#'    through an error.
+#' @param delimiter A delimiter used to detect tables. The default is two
+#'   consecutive blank white spaces.
+#' @param delimiter_table A delimiter used to separate table cells. The default
+#'   value is two consecutive blank white spaces.
+#' @param replacement A delimiter used to separate table cells after the
+#'   replacement of white space is done.
+#' @return A list containing data.frame for all extracted table
+#' @export
+
+pages_tables2 <- function(x,pages, path = FALSE,
+                            rec = FALSE,
+                           delimiter = "\\s{2,}",
+                           delimiter_table = "\\s{2,}",
+                           replacement = "|") {
+
+  if(path) {
+    x <- pdftools::pdf_text(x)
+
+  }
+  x <- x[pages]
+  tables <- lapply(seq_along(x), function(xx)
+    extractor_tables(x[[xx]], path = FALSE,
+                   rec = rec,
+                   delimiter = "\\s{2,}",
+                   delimiter_table = "\\s{2,}",
+                   replacement = "|"))
+  tables
+}
+
+

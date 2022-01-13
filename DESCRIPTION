@@ -1,0 +1,26 @@
+Package: pdftableExtractor
+Type: Package
+Title: Table extractor for PDF files
+Version: 0.1.0
+Author: 
+    c(person("Brandon", "LeBeau", email = "lebebr01+pdfsearch@gmail.com",
+               role = c("aut", "cre")),
+      person("Mubarak", "Mojoyinola", email = "mubarak-mojoyinola@uiowa.edu",
+              role =c("aut", "cre") 
+      )
+Maintainer: Mubarak Mojoyinola <mubarak-mojoyinola@uiowa.edu>
+Description: The package contain functions to extract tables from single and
+              double column PDF files. It has additional functionality to extract 
+              specific page(s) in the pdf files. 
+Depends:
+    R (>= 3.3.0)
+Imports:
+    pdftools,
+    tokenizers,
+    stringi,
+    utils,
+    knitr
+License: MIT + file LICENCE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
