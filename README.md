@@ -189,8 +189,37 @@ table5
 #> 7 C/B                                            0.085 ± 0.04                0.084 ± 0.05              0.79 ± 0.04                 0.674
 ```
 
-#> You’ll still need to render `README.Rmd` regularly, to keep
-`README.md` up-to-date. #>`devtools::build_readme()` is handy for this.
-You could also use GitHub Actions to #> re-render `README.Rmd` every
-time you push. An example workflow can be found here: #>
-<https://github.com/r-lib/actions/tree/v1/examples>.
+## Additional usage guide for extracting rectangular data from pdf
+
+### `extractor_tables`
+
+This is a basic example which shows you how to extract tables pdf
+document with rectangular data using `extractor_tables` function and the
+`rec` argument:
+
+``` r
+library(pdftableExtractor)
+file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
+table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
+```
+
+<img src="inst/extdata/output3.png" width="50%" style="display: block; margin: auto;" />
+
+## Limitations
+
+### Over selection
+
+Given the dynamic format of tables and the complexity of pdf documents,
+the table extraction algorithms can over select text as table in some
+circumstances. However, these texts can be drop through additional
+processing of the output data.
+
+Specifically, when working with double column pdf files where table does
+not cut across both columns, texts on the other column are greedily
+extracted as being part of the table.
+
+### Table inserted as image
+
+Table inserted as image in pdf document cannot be extracted, the package
+uses the [pdftools](https://github.com/ropensci/pdftools) package and is
+currently only capable of reading text.
