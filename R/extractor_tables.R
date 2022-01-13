@@ -23,8 +23,6 @@
 #' @importFrom utils read.csv
 #' @return A list containing data.frame for all extracted table
 #' @export
-
-
 extractor_tables <- function(x, path = FALSE,
                            rec = FALSE,
                            delimiter = "\\s{2,}",

@@ -21,7 +21,6 @@
 #'   replacement of white space is done.
 #' @return A list containing data.frame for all extracted table
 #' @export
-
 pages_tables2 <- function(x,pages, path = FALSE,
                             rec = FALSE,
                            delimiter = "\\s{2,}",
