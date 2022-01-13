@@ -189,7 +189,7 @@ table5
 #> 7 C/B                                            0.085 ± 0.04                0.084 ± 0.05              0.79 ± 0.04                 0.674
 ```
 
-## Additional usage guide for extracting rectangular data from pdf
+## Additional guide for extracting rectangular data from pdf
 
 ### `extractor_tables`
 

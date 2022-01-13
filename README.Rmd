@@ -125,6 +125,7 @@ file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
 table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
 ```
 
+
 ```{r, out.width = "70%", fig.align = "center", echo = FALSE}
 knitr::include_graphics("inst/extdata/output3.png")
 ```
