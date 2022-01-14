@@ -200,7 +200,7 @@ document with rectangular data using `extractor_tables` function and the
 ``` r
 library(pdftableExtractor)
 file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
-table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
+table <- extractor_tables(file, path = TRUE, rec = TRUE)
 ```
 
 <img src="inst/extdata/output3.png" width="70%" style="display: block; margin: auto;" />

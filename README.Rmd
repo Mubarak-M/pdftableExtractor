@@ -114,7 +114,7 @@ file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
 table5 <- pages_tables2(file,pages = 3, path = TRUE)
 table5
 ```
-## Additional usage guide for extracting rectangular data from pdf
+## Additional guide for extracting rectangular data from pdf
 ### `extractor_tables`
 This is a basic example which shows you how to extract tables pdf document with
 rectangular data using `extractor_tables` function and the `rec` argument:
