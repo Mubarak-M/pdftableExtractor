@@ -122,7 +122,7 @@ rectangular data using `extractor_tables` function and the `rec` argument:
 ```{r recdata, eval=FALSE}
 library(pdftableExtractor)
 file <- system.file("extdata", "recdata.pdf", package = "pdftableExtractor")
-table6 <- extractor_tables(file, path = TRUE, rec = TRUE)
+table <- extractor_tables(file, path = TRUE, rec = TRUE)
 ```
 
 
