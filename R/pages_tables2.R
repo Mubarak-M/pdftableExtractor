@@ -20,6 +20,10 @@
 #' @param replacement A delimiter used to separate table cells after the
 #'   replacement of white space is done.
 #' @return A list containing data.frame for all extracted table
+#' @example
+#' file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+#'
+#' table5 <- pages_tables2(file,pages = 3, path = TRUE)
 #' @export
 pages_tables2 <- function(x,pages, path = FALSE,
                             rec = FALSE,

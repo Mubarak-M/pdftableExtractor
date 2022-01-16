@@ -22,6 +22,10 @@
 #' @importFrom stringi stri_split
 #' @importFrom utils read.csv
 #' @return A list containing data.frame for all extracted table
+#' @example
+#' file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+#'
+#' table4 <- extractor_tables2(file, path = TRUE)
 #' @export
 extractor_tables2 <- function(x, path = FALSE, rec = FALSE,
                            delimiter = "\\s{2,}",

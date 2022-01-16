@@ -21,6 +21,10 @@
 #' @importFrom tokenizers tokenize_lines
 #' @importFrom stringi stri_split
 #' @importFrom utils read.csv
+#' @example
+#' file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+#'
+#' table1 <- extractor_tables(file, path = TRUE)
 #' @return A list containing data.frame for all extracted table
 #' @export
 extractor_tables <- function(x, path = FALSE,
