@@ -14,8 +14,6 @@
 #'    names. Only files that match the regular expression will be searched.
 #'    Defaults to all pdfs, i.e. \code{".pdf"}. See \code{\link{list.files}}
 #'    for more details.
-#' @param recursive TRUE/FALSE indicating if subdirectories should be searched
-#'    as well.
 #'    Default is FALSE, see \code{\link{list.files}} for more details.
 #' @param delimiter A delimiter used to detect tables. The default is two
 #'   consecutive blank white spaces.
@@ -29,16 +27,15 @@ directory_tables2 <- function(directory,
                              rec = FALSE,
                              file_pattern= ".pdf",
                              full_names = TRUE,
-                             recursive = FALSE,
                              delimiter = "\\s{2,}",
                              delimiter_table = "\\s{2,}",
                              replacement = "|"){
 
   files_dir <- list.files(path = directory, pattern = file_pattern,
-                          full.names = full_names, recursive = recursive)
+                          full.names = full_names)
 
   file_name <- list.files(path = directory, pattern = file_pattern,
-                          full.names = FALSE, recursive = recursive)
+                          full.names = FALSE)
 
   tabless <- lapply(seq_along(files_dir), function(xx)
     extractor_tables2(files_dir[[xx]], path = TRUE,
