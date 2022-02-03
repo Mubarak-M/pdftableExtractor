@@ -5,7 +5,7 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
+  comment = "",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
@@ -33,15 +33,13 @@ devtools::install_github('Mubarak-M/pdftableExtractor')
 `pdftableExtractor` provides functions to extract tables from single and
 double column PDF files. It has additional functionality which allows users to
 extract tables from specific page(s) in pdf files. The `exctractor_tables` function
-extract tables from single column pdf file and the `pages_tables` helper function
-does the same for specified page(s) in the pdf file. The `exctractor_tables2` and 
-`pages_tables`functions extract tables from uploaded pdf file and specified pages
-respectively, but with double column pdf files.
+is used for extracting all tables in pdf file while the `pages_tables` helper function
+enable users to extract table(s) from a specific page(s) in the pdf file.
 
-## Usage guide for single column document
+## Guide
 ### `extractor_tables`
-This is a basic example which shows you how to extract tables from single
-column pdf documents using `extractor_tables` function:
+This is a basic example which shows you how to extract tables from a pdf document
+using `extractor_tables` function:
 
 ```{r extractor_tables, eval=FALSE}
 library(pdftableExtractor)
@@ -58,17 +56,29 @@ Example of one of the data frames is presented below:
 knitr::include_graphics("inst/extdata/output1.png")
 ```
 
-### `pages_tables`
+### `pages_tables` from single column document
 This is a basic example which shows you how to extract tables from a specific 
-page(s) of a single column pdf documents using `pages_tables` function:
+page(s) in a single column pdf document using `pages_tables` function, the `onecol`
+argument must be set to TRUE:
 
 ```{r pages_tables}
 library(pdftableExtractor)
 file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
-table2 <- pages_tables(file,pages = 19, path = TRUE)
+table2 <- pages_tables(file,pages = 19, path = TRUE, onecol=TRUE)
 table2
 ```
 
+
+### `pages_tables` with double column pdf file
+This is a basic example which shows you how to extract tables from a specific 
+page(s) of a double column pdf documents using `pages_tables2` function:
+
+```{r pages_tables2}
+library(pdftableExtractor)
+file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
+table5 <- pages_tables(file,pages = 3, path = TRUE)
+table5
+```
 #### Rectangular data
 Extracting a rectangular data that is ready for analysis in R can 
 reduce data processing time. The `rec` argument is capable of extracting clean
@@ -79,41 +89,32 @@ and all columns must be of equal length.
 ```{r singlecol}
 library(pdftableExtractor)
 file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
-table3 <- pages_tables(file, pages = 18, path = TRUE, rec = TRUE)
+table3 <- pages_tables(file, pages = 18, path = TRUE, rec = TRUE, onecol = TRUE)
 table3
 ```
 
-## Usage guide for double column document
-### `extractor_tables2`
-This is a basic example which shows you how to extract tables from double column
-pdf documents using `extractor_tables2` function:
+<!-- ## Usage guide for double column document -->
+<!-- ### `extractor_tables2` -->
+<!--  This is a basic example which shows you how to extract tables from double column -->
+<!--  pdf documents using `extractor_tables2` function: -->
 
-```{r extractor_tables2, eval=FALSE}
+```{r extractor_tables2, eval=FALSE, echo=FALSE}
 library(pdftableExtractor)
 file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
 table4 <- extractor_tables2(file, path = TRUE)
 ```
 
-All tables in `twocoldata.pdf` are stored as a list containing 4 data frames 
-in table4.
+ <!-- All tables in `twocoldata.pdf` are stored as a list containing 4 data frames  -->
+ <!-- in table4. -->
 
-Example of one of the data frames is presented below:
+ <!-- Example of one of the data frames is presented below: -->
 
 
-```{r, out.width = "80%", fig.align = "center", echo = FALSE}
+```{r, out.width = "80%", fig.align = "center", echo = FALSE, eval=FALSE}
 knitr::include_graphics("inst/extdata/output2.png")
 ```
 
-### `pages_tables2`
-This is a basic example which shows you how to extract tables from a specific 
-page(s) of a double column pdf documents using `pages_tables2` function:
 
-```{r pages_tables2}
-library(pdftableExtractor)
-file <- system.file("extdata", "twocoldata.pdf", package = "pdftableExtractor")
-table5 <- pages_tables2(file,pages = 3, path = TRUE)
-table5
-```
 ## Additional guide for extracting rectangular data from pdf
 ### `extractor_tables`
 This is a basic example which shows you how to extract tables pdf document with
