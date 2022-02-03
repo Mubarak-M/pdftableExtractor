@@ -9,6 +9,7 @@ pages_tables(
   pages,
   path = FALSE,
   rec = FALSE,
+  onecol = FALSE,
   delimiter = "\\\\s{2,}",
   delimiter_table = "\\\\s{2,}",
   replacement = "|"
@@ -28,6 +29,8 @@ converted to text. The pdftools package is used for this conversion.}
 a rectangular dimension.That is, all rows and all columns are of equal length
 this is important because reading a table without proper dimension will
 through an error.}
+
+\item{onecol}{TRUE/FALSE indicating whether the pdf file is one column}
 
 \item{delimiter}{A delimiter used to detect tables. The default is two
 consecutive blank white spaces.}

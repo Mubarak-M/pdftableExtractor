@@ -13,6 +13,7 @@
 #'    a rectangular dimension.That is, all rows and all columns are of equal length
 #'    this is important because reading a table without proper dimension will
 #'    through an error.
+#' @param onecol TRUE/FALSE indicating whether the pdf file is one column
 #' @param delimiter A delimiter used to detect tables. The default is two
 #'   consecutive blank white spaces.
 #' @param delimiter_table A delimiter used to separate table cells. The default
@@ -31,23 +32,23 @@
 #'
 #' @export
 pages_tables <- function(x,pages, path = FALSE,
-                            rec = FALSE,
-                           delimiter = "\\s{2,}",
-                           delimiter_table = "\\s{2,}",
-                           replacement = "|") {
+                        rec = FALSE,
+                        onecol = FALSE,
+                        delimiter = "\\s{2,}",
+                        delimiter_table = "\\s{2,}",
+                        replacement = "|") {
 
   if(path) {
     x <- pdftools::pdf_text(x)
-
+    #Turns the pdf to character vectors, number of vectors equals number of pages in the PDF file
   }
   x <- x[pages]
   tables <- lapply(seq_along(x), function(xx)
     extractor_tables(x[[xx]], path = FALSE,
-                   rec = rec,
-                   delimiter = "\\s{2,}",
-                   delimiter_table = "\\s{2,}",
-                   replacement = "|"))
+                      rec = rec,
+                      onecol=onecol,
+                      delimiter = "\\s{2,}",
+                      delimiter_table = "\\s{2,}",
+                      replacement = "|"))
   tables
 }
-
-
