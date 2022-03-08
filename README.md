@@ -51,7 +51,7 @@ frames in table1. Example of one of the data frames is presented below:
 
 This is a basic example which shows you how to extract tables from a
 specific page(s) in a single column pdf document using `pages_tables`
-function, the `onecol` argument must be set to TRUE:
+function, the `onecol` argument must be set to TRUE:-
 
 ``` r
 library(pdftableExtractor)
