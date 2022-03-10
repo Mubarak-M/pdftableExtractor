@@ -24,7 +24,7 @@ devtools::install_github('Mubarak-M/pdftableExtractor')
 
 ## Usage
 
-`pdftableExtractor` provides functions to extract tables from single and
+`pdftableExtractor` provides function to extract tables from single and
 double column PDF files. It has additional functionality which allows
 users to extract tables from specific page(s) in pdf files. The
 `exctractor_tables` function is used for extracting all tables in pdf
