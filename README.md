@@ -2,6 +2,8 @@
 # pdftableExtractor
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Mubarak-M/pdftableExtractor/workflows/R-CMD-check/badge.svg)](https://github.com/Mubarak-M/pdftableExtractor/actions)
 <!-- badges: end -->
 
 The `pdftableExtractor` package provides functions for extracting tables
@@ -23,7 +25,7 @@ devtools::install_github('Mubarak-M/pdftableExtractor')
 ## Usage
 
 `pdftableExtractor` provides functions to extract tables from single and
-double column PDF files. It has additional functionality which allows
+double column PDF file. It has additional functionality which allows
 users to extract tables from specific page(s) in pdf files. The
 `exctractor_tables` function is used for extracting all tables in pdf
 file while the `pages_tables` helper function enable users to extract
@@ -51,7 +53,7 @@ frames in table1. Example of one of the data frames is presented below:
 
 This is a basic example which shows you how to extract tables from a
 specific page(s) in a single column pdf document using `pages_tables`
-function, the `onecol` argument must be set to TRUE:-
+function, the `onecol` argument must be set to TRUE:
 
 ``` r
 library(pdftableExtractor)
