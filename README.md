@@ -4,6 +4,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Mubarak-M/pdftableExtractor/workflows/R-CMD-check/badge.svg)](https://github.com/Mubarak-M/pdftableExtractor/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/Mubarak-M/pdftableExtractor/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Mubarak-M/pdftableExtractor?branch=main)
 <!-- badges: end -->
 
 The `pdftableExtractor` package provides functions for extracting tables

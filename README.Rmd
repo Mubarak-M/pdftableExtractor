@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/Mubarak-M/pdftableExtractor/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Mubarak-M/pdftableExtractor?branch=main)
 <!-- badges: end -->
 
+
+
 The `pdftableExtractor` package provides functions for extracting tables from PDF
  files. Using the [pdftools](https://github.com/ropensci/pdftools)  package developed by [rOpenSci](https://ropensci.org/), tables can be easily extracted from pdf files in R 
  environment without the need for additional setup. 
