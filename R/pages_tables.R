@@ -1,7 +1,7 @@
 #' Extract tables from pdf documents
 #'
-#' Using the pdftools package, tables in the loaded pdf document are extracted
-#' as a dataframe and returned in a list..
+#' Using the pdftools package, tables in the pdf document are extracted
+#' as a dataframe and returned as a list.
 #'
 #' @param x Either the text of the pdf read in with the pdftools package or a
 #'    path for the location of the pdf file.
