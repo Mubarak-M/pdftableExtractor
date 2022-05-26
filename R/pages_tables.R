@@ -46,7 +46,7 @@ pages_tables <- function(x, pages, path = FALSE,
   tables <- lapply(seq_along(x), function(ii)
     extractor_tables(x[[ii]], path = FALSE,
                       rec = rec,
-                      onecol=onecol,
+                      onecol = onecol,
                       delimiter = "\\s{2,}",
                       delimiter_table = "\\s{2,}",
                       replacement = "|"))
