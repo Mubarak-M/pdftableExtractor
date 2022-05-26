@@ -21,7 +21,7 @@
 #'   replacement of white space is done.
 #' @importFrom pdftools pdf_text
 #' @importFrom tokenizers tokenize_lines
-#' @importFrom stringi stri_split
+#' @importFrom stringi stri_split stri_split_lines stri_split_regex stri_isempty
 #' @importFrom utils read.csv
 #' @examples
 #' file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
