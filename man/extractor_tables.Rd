@@ -18,7 +18,7 @@ extractor_tables(
 \item{x}{Either the text of the pdf read in with the pdftools package or a
 path for the location of the pdf file.}
 
-\item{path}{An optional path designation for the location of the pdf to be
+\item{path}{TRUE/FALSE; An optional path designation for the location of the pdf to be
 converted to text. The pdftools package is used for this conversion.}
 
 \item{rec}{TRUE/FALSE indicating whether the table in the pdf or the page has
@@ -42,6 +42,6 @@ replacement of white space is done.}
 A list containing data.frame for all extracted table
 }
 \description{
-Using the pdftools package, tables in the loaded pdf document are extracted
-as a dataframe and returned in a list..
+Using the pdftools package, tables in the pdf document are extracted
+as a dataframe and returned as a list.
 }

@@ -45,8 +45,8 @@ replacement of white space is done.}
 A list containing data.frame for all extracted table
 }
 \description{
-Using the pdftools package, tables in the loaded pdf document are extracted
-as a dataframe and returned in a list..
+Using the pdftools package, tables in the pdf document are extracted
+as a dataframe and returned as a list.
 }
 \examples{
 file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
