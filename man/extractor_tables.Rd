@@ -22,9 +22,9 @@ path for the location of the pdf file.}
 converted to text. The pdftools package is used for this conversion.}
 
 \item{rec}{TRUE/FALSE indicating whether the table in the pdf or the page has
-a rectangular dimension.That is, all rows and all columns are of equal length
-this is important because reading a table without proper dimension will
-through an error.}
+a rectangular dimension. That is, all rows and all columns are of equal length.
+This is important because reading a table without proper dimension will
+produce an error.}
 
 \item{onecol}{TRUE/FALSE indicating whether the pdf file is one column, used
 only by the extract_pages helper function}

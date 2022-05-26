@@ -8,9 +8,9 @@
 #' @param path TRUE/FALSE; An optional path designation for the location of the pdf to be
 #'    converted to text. The pdftools package is used for this conversion.
 #' @param rec TRUE/FALSE indicating whether the table in the pdf or the page has
-#'    a rectangular dimension.That is, all rows and all columns are of equal length
-#'    this is important because reading a table without proper dimension will
-#'    through an error.
+#'    a rectangular dimension. That is, all rows and all columns are of equal length.
+#'    This is important because reading a table without proper dimension will
+#'    produce an error.
 #' @param onecol TRUE/FALSE indicating whether the pdf file is one column, used
 #' only by the extract_pages helper function
 #' @param delimiter A delimiter used to detect tables. The default is two
