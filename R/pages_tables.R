@@ -5,14 +5,14 @@
 #'
 #' @param x Either the text of the pdf read in with the pdftools package or a
 #'    path for the location of the pdf file.
-#' @param pages numeric vector of pages from which table will be extracted.
+#' @param pages Numeric vector of pages from which table will be extracted.
 #'     it can be a single number or a vector of numbers.
-#' @param path An optional path designation for the location of the pdf to be
+#' @param path TRUE/FALSE; An optional path designation for the location of the pdf to be
 #'    converted to text. The pdftools package is used for this conversion.
 #' @param rec TRUE/FALSE indicating whether the table in the pdf or the page has
-#'    a rectangular dimension.That is, all rows and all columns are of equal length
-#'    this is important because reading a table without proper dimension will
-#'    through an error.
+#'    a rectangular dimension.That is, all rows and all columns are of equal length.
+#'    This is important because reading a table without proper dimension will
+#'    produce an error.
 #' @param onecol TRUE/FALSE indicating whether the pdf file is one column
 #' @param delimiter A delimiter used to detect tables. The default is two
 #'   consecutive blank white spaces.
@@ -31,7 +31,7 @@
 #' pages_tables(file, pages = 19, path = TRUE, rec = TRUE)
 #'
 #' @export
-pages_tables <- function(x,pages, path = FALSE,
+pages_tables <- function(x, pages, path = FALSE,
                         rec = FALSE,
                         onecol = FALSE,
                         delimiter = "\\s{2,}",

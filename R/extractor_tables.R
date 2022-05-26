@@ -23,7 +23,7 @@
 #' @importFrom tokenizers tokenize_lines
 #' @importFrom stringi stri_split
 #' @importFrom utils read.csv
-#' @example
+#' @examples
 #' file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
 #'
 #' table1 <- extractor_tables(file, path = TRUE)

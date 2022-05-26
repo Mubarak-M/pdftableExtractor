@@ -45,3 +45,8 @@ A list containing data.frame for all extracted table
 Using the pdftools package, tables in the pdf document are extracted
 as a dataframe and returned as a list.
 }
+\examples{
+file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
+
+table1 <- extractor_tables(file, path = TRUE)
+}
