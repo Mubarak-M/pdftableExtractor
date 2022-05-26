@@ -43,8 +43,8 @@ pages_tables <- function(x, pages, path = FALSE,
     #Turns the pdf to character vectors, number of vectors equals number of pages in the PDF file
   }
   x <- x[pages]
-  tables <- lapply(seq_along(x), function(xx)
-    extractor_tables(x[[xx]], path = FALSE,
+  tables <- lapply(seq_along(x), function(ii)
+    extractor_tables(x[[ii]], path = FALSE,
                       rec = rec,
                       onecol=onecol,
                       delimiter = "\\s{2,}",
