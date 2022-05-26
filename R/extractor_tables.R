@@ -5,7 +5,7 @@
 #'
 #' @param x Either the text of the pdf read in with the pdftools package or a
 #'    path for the location of the pdf file.
-#' @param path An optional path designation for the location of the pdf to be
+#' @param path TRUE/FALSE; An optional path designation for the location of the pdf to be
 #'    converted to text. The pdftools package is used for this conversion.
 #' @param rec TRUE/FALSE indicating whether the table in the pdf or the page has
 #'    a rectangular dimension.That is, all rows and all columns are of equal length
@@ -55,7 +55,7 @@ extractor_tables <- function(x, path = FALSE,
   }
 
   if(onecol) {
-    textcol=1
+    textcol = 1
   } else {
     textcol <- detect_num_textcolumns(x)
   }
