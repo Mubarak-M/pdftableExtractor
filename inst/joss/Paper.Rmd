@@ -1,5 +1,5 @@
 ---
-title: 'Pdftabextract: An R Package for Extracting Tables From PDF Files'
+title: 'pdftabextract: An R Package for Extracting Tables From PDF Files'
 tags:
   - R
   - Rsearch Synthesis
@@ -7,18 +7,18 @@ authors:
   - name: Mubarak O. Mojoyinola
     affiliation: 1
   - name: Brandon LeBeau
+    orcid: 0000-0002-1265-8761
     affiliation: 1
 affiliations:
  - name: University of Iowa
    index: 1
 date: "`r Sys.Date()`"
 bibliography: paper.bib
-
 ---
 
 # Summary
 
-**pdftabextract** is an R package[@R] that facilitates the extraction of tables from PDF files. The package extends the text extraction capacity of pdftools[@pdftools] to allow for the extraction of tables from a specific page of a PDF file or extract all tables in a PDF. By utilizing the functionality of pdftools, tables can be easily extracted from PDF files in R environment without the need for additional setup. Users can directly extract rectangular tables in a PDF file and save the output as an R dataframe, while unconventional tables can be saved as a list. This has the potential to improve the data extraction process for meta-analysis projects and secondary data analysis from published documents. Detailed usage instruction is available [online](https://github.com/Mubarak-M/pdftableExtractor/edit/main/README.md)
+**pdftabextract** is an R package [@R] that facilitates the extraction of tables from PDF files. The package extends the text extraction capacity of pdftools [@pdftools] to allow for the extraction of tables from a specific page of a PDF file or extract all tables in a PDF. By utilizing the functionality of pdftools, tables can be extracted from PDF files in the R environment without the need for more complex dependencies (e.g., Java). Users can directly extract rectangular tables in a PDF file and save the output as an R dataframe, while unconventional tables can be saved as a list. This has the potential to improve the data extraction process for meta-analysis projects and secondary data analysis from published documents. Detailed usage instruction is available [at GitHub](https://github.com/Mubarak-M/pdftableExtractor/edit/main/README.md)
 
 # Statement of need
 
