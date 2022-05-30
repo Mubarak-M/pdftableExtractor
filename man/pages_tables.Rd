@@ -19,16 +19,16 @@ pages_tables(
 \item{x}{Either the text of the pdf read in with the pdftools package or a
 path for the location of the pdf file.}
 
-\item{pages}{numeric vector of pages from which table will be extracted.
+\item{pages}{Numeric vector of pages from which table will be extracted.
 it can be a single number or a vector of numbers.}
 
-\item{path}{An optional path designation for the location of the pdf to be
+\item{path}{TRUE/FALSE; An optional path designation for the location of the pdf to be
 converted to text. The pdftools package is used for this conversion.}
 
 \item{rec}{TRUE/FALSE indicating whether the table in the pdf or the page has
-a rectangular dimension.That is, all rows and all columns are of equal length
-this is important because reading a table without proper dimension will
-through an error.}
+a rectangular dimension.That is, all rows and all columns are of equal length.
+This is important because reading a table without proper dimension will
+produce an error.}
 
 \item{onecol}{TRUE/FALSE indicating whether the pdf file is one column}
 
@@ -45,8 +45,8 @@ replacement of white space is done.}
 A list containing data.frame for all extracted table
 }
 \description{
-Using the pdftools package, tables in the loaded pdf document are extracted
-as a dataframe and returned in a list..
+Using the pdftools package, tables in the pdf document are extracted
+as a dataframe and returned as a list.
 }
 \examples{
 file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")

@@ -1,16 +1,16 @@
 #' Extract tables from pdf documents
 #'
-#' Using the pdftools package, tables in the loaded pdf document are extracted
-#' as a dataframe and returned in a list..
+#' Using the pdftools package, tables in the pdf document are extracted
+#' as a dataframe and returned as a list.
 #'
 #' @param x Either the text of the pdf read in with the pdftools package or a
 #'    path for the location of the pdf file.
-#' @param path An optional path designation for the location of the pdf to be
+#' @param path TRUE/FALSE; An optional path designation for the location of the pdf to be
 #'    converted to text. The pdftools package is used for this conversion.
 #' @param rec TRUE/FALSE indicating whether the table in the pdf or the page has
-#'    a rectangular dimension.That is, all rows and all columns are of equal length
-#'    this is important because reading a table without proper dimension will
-#'    through an error.
+#'    a rectangular dimension. That is, all rows and all columns are of equal length.
+#'    This is important because reading a table without proper dimension will
+#'    produce an error.
 #' @param onecol TRUE/FALSE indicating whether the pdf file is one column, used
 #' only by the extract_pages helper function
 #' @param delimiter A delimiter used to detect tables. The default is two
@@ -21,9 +21,9 @@
 #'   replacement of white space is done.
 #' @importFrom pdftools pdf_text
 #' @importFrom tokenizers tokenize_lines
-#' @importFrom stringi stri_split
+#' @importFrom stringi stri_split stri_split_lines stri_split_regex stri_isempty
 #' @importFrom utils read.csv
-#' @example
+#' @examples
 #' file <- system.file("extdata", "onecoldata.pdf", package = "pdftableExtractor")
 #'
 #' table1 <- extractor_tables(file, path = TRUE)
@@ -43,7 +43,7 @@ extractor_tables <- function(x, path = FALSE,
   line_nums <- cumsum(lapply(tokenizers::tokenize_lines(x), length))
   #Breaks the giant character vectors representing pages into character vectors representing lines per page and sum number
   #of lines per page
-  if(all(line_nums== 0)) {
+  if(all(line_nums == 0)) {
     warning('text not recognized in pdf')
 
     #Checks if any page has cumulative sum of zero to determine if the text is a pdf file
@@ -54,19 +54,19 @@ extractor_tables <- function(x, path = FALSE,
 
   }
 
-  if(onecol==TRUE){
-    textcol=1
-  }else{
+  if(onecol) {
+    textcol = 1
+  } else {
     textcol <- detect_num_textcolumns(x)
   }
 
 
-  if(textcol==1){
+  if(textcol == 1) {
     possible_table_locations <- grep(delimiter, x_lines)
     table_locations <- find_table_locations(possible_table_locations)
     #calls find_table_locations function and returns a list of possible number of table and indices of each line in the table in x_lines
 
-  }else{
+  } else {
     possible_table_locations <- grep("\\s{2,}|\\s{2,}$", x_lines)
     table_locations <- find_table_locationss(possible_table_locations, x_lines)
   }
@@ -83,7 +83,7 @@ extractor_tables <- function(x, path = FALSE,
                              replacement = replacement)
   #replace white spaces between table text with /
 
-  if(rec){
+  if(rec) {
     tables <- lapply(table_text_delim, rec_table)
     #tables <- lapply(seq_along(table_text_delim), function(xx){
     # output_con <- textConnection(table_text_delim[[xx]])
@@ -92,7 +92,7 @@ extractor_tables <- function(x, path = FALSE,
     #})
     tables
 
-  }else{
+  } else {
 
     tables <- lapply(table_text_space, as.data.frame, use.names=TRUE)
     #tables <- lapply(seq_along(tables), function(xx)
@@ -161,7 +161,7 @@ find_table_locations <- function(row_numbers) {
   rle_df$select <- ifelse(rle_df$lengths > 2 & rle_df$values, 1, 0)
   #assign 1 to runs where value is TRUE and 0 to FALSE values
 
-  if(nrow_rledf==1){
+  if(nrow_rledf == 1){
     rle_df$start <- min(c(1, cumsum(rle_df$lengths[1:(nrow(rle_df)-1)]) + 1))
     #reference the beginning of a run in the earlier outcome of possible_table locations
   }else{
@@ -208,7 +208,7 @@ find_table_locationss <- function(possible_table_locations, x_lines) {
   nrow_rledf <- nrow(rle_df_characters)
   rle_df_characters$select <- ifelse(rle_df_characters$lengths > 2 & rle_df_characters$values, 1, 0)
 
-  if(nrow_rledf==1){
+  if(nrow_rledf == 1){
     rle_df_characters$start <- min(c(1, cumsum(rle_df_characters$lengths[1:(nrow(rle_df_characters)-1)]) + 1))
   }else{
     rle_df_characters$start <- c(1, cumsum(rle_df_characters$lengths[1:(nrow(rle_df_characters)-1)]) + 1)
