@@ -68,7 +68,7 @@ extractor_tables <- function(x, path = FALSE,
 
   } else {
     possible_table_locations <- grep("\\s{2,}|\\s{2,}$", x_lines)
-    table_locations <- find_table_locationss(possible_table_locations, x_lines)
+    table_locations <- find_table_locations_multicol(possible_table_locations, x_lines)
   }
 
   table_locations <- lapply(table_locations, table_location_sequence)
@@ -135,6 +135,15 @@ detect_num_textcolumns <- function(x, pattern = "\\p{WHITE_SPACE}{3,}") {
 
 detect_false <- function(x) { x == FALSE }
 
+
+#' Find table locations
+#'
+#' From input of row numbers of possible table locations, this function detects
+#'  subsequent row numbers to identify single tables.
+#'
+#' @param row_numbers Row numbers of PDF text that are possible table locations.
+#'
+#' @export
 find_table_locations <- function(row_numbers) {
   # find table location takes the parameter(possible table location)
 
@@ -189,7 +198,7 @@ find_table_locations <- function(row_numbers) {
   row_numbers_return
 }
 
-find_table_locationss <- function(possible_table_locations, x_lines) {
+find_table_locations_multicol <- function(possible_table_locations, x_lines) {
 
   characters_line_split <-unlist(lapply(seq_len(length(possible_table_locations)), function(xx)
     length(strsplit(x_lines[possible_table_locations[[xx]]], "\\s{2,}")[[1]])))
