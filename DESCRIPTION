@@ -1,7 +1,7 @@
 Package: pdftableExtractor
 Type: Package
 Title: Table extractor for PDF files
-Version: 0.1.1
+Version: 0.1.2
 Author: 
     c(person("Mubarak", "Mojoyinola", email = "mubarak-mojoyinola@uiowa.edu",
               role =c("aut", "cre")),
@@ -23,7 +23,7 @@ Imports:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Suggests: 
     covr,
     testthat (>= 3.0.0)
